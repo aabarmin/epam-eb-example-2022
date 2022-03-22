@@ -1,0 +1,6 @@
+app:
+  configuration:
+    table-name: invoices
+    table-region: eu-west-2
+    queue-region: eu-west-2
+    queue-name: epam-aws-eb-queue

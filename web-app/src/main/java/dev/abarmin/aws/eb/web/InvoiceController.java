@@ -1,6 +1,7 @@
 package dev.abarmin.aws.eb.web;
 
 import dev.abarmin.aws.eb.common.model.Invoice;
+import dev.abarmin.aws.eb.web.service.InvoiceService;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,10 @@ public class InvoiceController {
   private final InvoiceService invoiceService;
 
   private Invoice createInvoice() {
-    final Invoice invoice = new Invoice();
-    invoice.setCreatedAt(LocalDate.now());
-    invoice.setDescription("Dummy description");
-    return invoice;
+    return Invoice.builder()
+        .createdAt(LocalDate.now())
+        .description("Dummy description")
+        .build();
   }
 
   @GetMapping
