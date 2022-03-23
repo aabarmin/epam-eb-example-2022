@@ -1,0 +1,13 @@
+@startuml Environment Internals
+title Environment Internals
+
+actor "User" as user
+participant "HTTP Proxy" as proxy
+participant "Application" as app
+
+user -> proxy: HTTP request on port 80
+proxy -> app: Forward request on port 5000
+app -> proxy: Response
+proxy -> user: Response
+
+@enduml

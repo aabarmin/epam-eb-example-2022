@@ -1,0 +1,27 @@
+@startuml Bird Eye Overview
+title: Bir Eye Overview
+autonumber
+
+actor User as user
+participant "Web Environment" as webapp
+database "DynamDB Table" as db
+queue "SQS Queue" as queue
+control "SQS Daemon" as daemon
+participant "Worker Environment" as workerapp
+
+group Receiving a request
+    user -> webapp: HTTP Request
+    webapp -> db: Save record
+    webapp <- db: Save record response
+    webapp -> queue: Send a message
+    webapp -> user: HTTP Response
+end
+
+group Processing a message
+    daemon -> queue: Check if new messages \nare available
+    queue -> daemon: Available messages
+    daemon -> workerapp: Post messages via HTTP \none by one
+    workerapp -> db: Update processed records
+end
+
+@enduml
