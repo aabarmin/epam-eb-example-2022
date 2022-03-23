@@ -2,6 +2,8 @@ package dev.abarmin.aws.eb.common.repository;
 
 import dev.abarmin.aws.eb.common.config.AppConfiguration;
 import dev.abarmin.aws.eb.common.model.Invoice;
+import dev.abarmin.aws.eb.common.model.InvoiceStatus;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
@@ -72,5 +74,26 @@ public class DynamoDbInvoiceRepository implements InvoiceRepository {
     }
     final Invoice invoice = transformer.toModel(response.item());
     return Optional.of(invoice);
+  }
+
+  @Override
+  public Collection<Invoice> findAllByStatus(final InvoiceStatus status) {
+    ScanRequest request = ScanRequest.builder()
+        .tableName(appConfiguration.getTableName())
+        .filterExpression("#invoice_status = :status")
+        .expressionAttributeValues(Map.of(
+          ":status",
+          AttributeValue.builder().s(status.name()).build()
+        ))
+        .expressionAttributeNames(Map.of(
+          "#invoice_status", "status"
+        ))
+        .build();
+      
+    return dynamoDbClient.scan(request)
+        .items()
+        .stream()
+        .map(transformer::toModel)
+        .collect(Collectors.toList());
   }
 }

@@ -4,3 +4,6 @@ Content-Type: application/json
 {
     "id": "a7f88b1a-c9f8-4b2f-bec2-7d8099e3e194"
 }
+
+###
+GET http://localhost:8080/cron
