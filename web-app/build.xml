@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WebApp" basedir="." default="main">
+    <property name="dist.folder" value="dist" />
+    <property name="extensions.folder" value="${dist.folder}/.ebextensions" />
+    <property name="maven.target.folder" value="target" />
+
+    <target name="clean-before">
+        <echo message="Removing old dist folder" />
+        <delete dir="${dist.folder}" />
+    </target>
+
+    <target name="create-dist">
+        <echo message="Creating dist folder" />
+        <mkdir dir="${dist.folder}" />
+        <mkdir dir="${extensions.folder}" />
+    </target>
+
+    <target name="copy-extensions">
+        <echo message="Copy .ebextensions" />
+        <copy todir="${extensions.folder}">
+            <fileset dir="config/ebextensions"></fileset>
+        </copy>
+
+        <echo message="Copy env.yaml" />
+        <copy todir="${dist.folder}">
+            <fileset dir="config">
+                <include name="env.yaml" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="copy-jar">
+        <echo message="Copy JAR" />
+        <copy todir="${dist.folder}">
+            <fileset dir="${maven.target.folder}">
+                <include name="*.jar" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="archive">
+        <echo message="Create ZIP bundle" />
+        <zip destfile="${dist.folder}/web.bundle.zip" basedir="${dist.folder}" />
+    </target>
+
+    <target name="clean-after">
+        <echo message="Removing extra files" />
+        <delete>
+            <fileset dir="${dist.folder}">
+                <include name="*.jar" />
+                <include name="*.yaml" />
+            </fileset>
+        </delete>
+        <delete dir="${extensions.folder}" />
+    </target>
+   
+    <target name="copy-resources" depends="copy-extensions,copy-jar">
+
+    </target>
+
+    <target name="main" depends="clean-before,create-dist,copy-resources,archive,clean-after">
+        
+    </target>
+</project>

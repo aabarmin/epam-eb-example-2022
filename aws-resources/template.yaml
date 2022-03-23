@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Custom resources for Elastic Beanstalk
+Resources: 
+    workerQueue:
+        Type: AWS::SQS::Queue
+        Properties: 
+            QueueName: epam-aws-eb-queue
+
+    invoiceTable: 
+        Type: AWS::DynamoDB::Table
+        Properties: 
+            BillingMode: PROVISIONED
+            KeySchema: 
+                - AttributeName: id
+                  KeyType: HASH
+            ProvisionedThroughput:
+                ReadCapacityUnits: 5
+                WriteCapacityUnits: 5
+            TableName: invoices
+            AttributeDefinitions: 
+                - AttributeName: id
+                  AttributeType: S
+
+    InstanceRole:
+        Type: AWS::IAM::Role
+        Properties: 
+            RoleName: EBWebEnvironmentRole
+            Description: IAM role for Elastic Beanstalk Web Environment
+            Path: /
+            AssumeRolePolicyDocument:
+                Statement:
+                - Effect: Allow
+                  Principal:
+                    Service:
+                    - ec2.amazonaws.com
+                  Action:
+                  - 'sts:AssumeRole'
+            ManagedPolicyArns: 
+                - arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier
+                - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+                - arn:aws:iam::aws:policy/AmazonSQSFullAccess
+                  
+    InstanceProfile: 
+        Type: AWS::IAM::InstanceProfile
+        Properties:
+            InstanceProfileName: EBWebEnvironmentInstanceProfile
+            Path: /
+            Roles: 
+                - !Ref InstanceRole
+
+    WorkerInstanceRole: 
+        Type: AWS::IAM::Role
+        Properties: 
+            RoleName: EBWorkerEnvironmentRole
+            Description: IAM role for Elastic Beanstalk Worker Environment
+            Path: /
+            AssumeRolePolicyDocument:
+                Statement:
+                - Effect: Allow
+                  Principal:
+                    Service:
+                    - ec2.amazonaws.com
+                  Action:
+                  - 'sts:AssumeRole'
+            ManagedPolicyArns: 
+                - arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier
+                - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+
+    WorkerInstanceProfile: 
+        Type: AWS::IAM::InstanceProfile
+        Properties:
+            InstanceProfileName: EBWorkerEnvironmentInstanceProfile
+            Path: /
+            Roles: 
+                - !Ref WorkerInstanceRole
