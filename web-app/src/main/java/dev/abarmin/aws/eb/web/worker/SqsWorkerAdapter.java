@@ -1,8 +1,10 @@
 package dev.abarmin.aws.eb.web.worker;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import dev.abarmin.aws.eb.common.config.AppConfiguration;
 import dev.abarmin.aws.eb.common.model.Invoice;
-import dev.abarmin.aws.eb.web.config.AppConfiguration;
+
 import java.util.HashMap;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;

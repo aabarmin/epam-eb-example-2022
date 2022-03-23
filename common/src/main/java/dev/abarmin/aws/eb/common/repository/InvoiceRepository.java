@@ -1,4 +1,4 @@
-package dev.abarmin.aws.eb.web.repository;
+package dev.abarmin.aws.eb.common.repository;
 
 import dev.abarmin.aws.eb.common.model.Invoice;
 import java.util.Collection;

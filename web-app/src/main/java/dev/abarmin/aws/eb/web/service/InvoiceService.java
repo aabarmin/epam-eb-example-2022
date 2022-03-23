@@ -2,8 +2,9 @@ package dev.abarmin.aws.eb.web.service;
 
 import dev.abarmin.aws.eb.common.model.Invoice;
 import dev.abarmin.aws.eb.common.model.InvoiceStatus;
+import dev.abarmin.aws.eb.common.repository.InvoiceRepository;
 import dev.abarmin.aws.eb.web.worker.WorkerAdapter;
-import dev.abarmin.aws.eb.web.repository.InvoiceRepository;
+
 import java.util.Collection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

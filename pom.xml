@@ -21,6 +21,7 @@
     <module>web-app</module>
     <module>worker-app</module>
     <module>common</module>
+    <module>repository-dynamodb</module>
   </modules>
 
   <properties>
@@ -35,6 +36,12 @@
         <artifactId>common</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>dev.abarmin.aws.eb</groupId>
+        <artifactId>repository-dynamodb</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
         <artifactId>bom</artifactId>
@@ -69,10 +76,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>software.amazon.awssdk</groupId>
-      <artifactId>dynamodb</artifactId>
     </dependency>
 
     <dependency>

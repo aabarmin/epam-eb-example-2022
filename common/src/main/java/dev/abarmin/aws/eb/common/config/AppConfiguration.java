@@ -1,4 +1,4 @@
-package dev.abarmin.aws.eb.web.config;
+package dev.abarmin.aws.eb.common.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

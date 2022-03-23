@@ -1,9 +1,8 @@
-package dev.abarmin.aws.eb.web.repository;
+package dev.abarmin.aws.eb.common.repository;
 
+import dev.abarmin.aws.eb.common.config.AppConfiguration;
 import dev.abarmin.aws.eb.common.model.Invoice;
-import dev.abarmin.aws.eb.web.config.AppConfiguration;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
