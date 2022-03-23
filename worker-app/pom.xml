@@ -15,7 +15,11 @@
       <dependency>
         <groupId>dev.abarmin.aws.eb</groupId>
         <artifactId>common</artifactId>
-    </dependency>
+      </dependency>
+      <dependency>
+        <groupId>dev.abarmin.aws.eb</groupId>
+        <artifactId>repository-dynamodb</artifactId>
+      </dependency>
     </dependencies>
 
     <build>
