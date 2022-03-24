@@ -69,7 +69,7 @@
                                 <exec executable="marp">
                                     <arg value="../docs/slides/slides.md" />
                                     <arg value="-o" />
-                                    <arg value="slides.html" />
+                                    <arg value="../docs/slides/slides.html" />
                                 </exec>
                             </target>
                         </configuration>

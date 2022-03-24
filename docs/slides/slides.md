@@ -230,5 +230,33 @@ You write the code, AWS Elastic Beanstalk will handle the deployment, from capac
 
 ---
 
-![bg right](../images/Elastic%20Beanstalk%20version%20flow.png)
-# AWS Elastic Beanstalk
+![bg fit right](./images/Web-environment-overview.png)
+# Web Environment
+
+Infrastructure + host manager
+
+* Deploying the application
+* Collecting events and metrics
+* Generating instance-level events
+* Monitoring logs for critical events
+* Monitoring app server
+* Patching the instance
+* Log rotation
+
+---
+
+![bg height 75%](./images/worker-environment-overview.png)
+
+---
+
+![bg right](./images/pexels-s-migaj-1402850.jpg)
+# Building and Running Apps
+
+* `Buildfile` - for short-running jobs, EB is not monitoring them
+* `Procfile` - for long-running jobs, restarted if failed
+
+---
+
+# Platform Hooks
+
+* 
