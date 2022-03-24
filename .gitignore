@@ -33,3 +33,5 @@ build/
 .vscode/
 
 dist/
+diagrams/node/
+.DS_Store

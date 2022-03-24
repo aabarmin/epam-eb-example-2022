@@ -56,6 +56,34 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <id>install-node</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v17.6.0</nodeVersion>
+                            <npmVersion>8.5.1</npmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-slides</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>npx</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>@marp-team/marp-cli@latest </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
