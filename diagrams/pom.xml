@@ -55,35 +55,27 @@
                         <scope>runtime</scope>
                     </dependency>
                 </dependencies>
-            </plugin>
+            </plugin>       
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.9.1</version>
+                <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>install-node</id>
                         <phase>process-resources</phase>
                         <goals>
-                            <goal>install-node-and-npm</goal>
+                            <goal>run</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v17.6.0</nodeVersion>
-                            <npmVersion>8.5.1</npmVersion>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>generate-slides</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>npx</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>@marp-team/marp-cli@latest </arguments>
+                            <target>
+                                <exec executable="marp">
+                                    <arg value="../docs/slides/slides.md" />
+                                    <arg value="-o ../slides.pdf" />
+                                    <arg value="--allow-local-files" />
+                                </exec>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>     
         </plugins>
     </build>
 </project>
