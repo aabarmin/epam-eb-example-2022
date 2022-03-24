@@ -43,6 +43,7 @@ March 2022
 
 ---
 
+![bg right](./images/pexels-oleg-magni-1837603.jpg)
 # AWS Serverless
 
 * AWS Lambda
@@ -52,6 +53,7 @@ March 2022
 
 ---
 
+![bg right](./images/pexels-pixabay-460635.jpg)
 # Containers in AWS
 
 * AWS Elastic Container Service
@@ -59,12 +61,14 @@ March 2022
 
 ---
 
+![bg right](./images/pexels-pierre-blach%C3%A9-2834219.jpg)
 # AWS Elastic Compute Cloud - EC2
 
 Actually, this is just a virtual machine (VM). 
 
 ---
 
+![bg right](./images/pexels-anthony-133614.jpg)
 # Use cases for virtual machines
 
 * List and shift migration
@@ -74,6 +78,7 @@ Actually, this is just a virtual machine (VM).
 
 ---
 
+![bg right](./images/pexels-pixabay-415585.jpg)
 <!-- header: EC2 Instance Types -->
 # EC2 Instance Types
 
@@ -152,4 +157,78 @@ GPU-based computing.
 
 ---
 
+![bg right](./images/pexels-jackson-jorvan-605494.jpg)
 # EC2 instance features
+
+* Instances with burastable performance
+* Different storage options
+* Placement options
+
+---
+
+![bg right](./images/pexels-dapurmelodi-699422.jpg)
+# Burstable Performance Instances
+
+Bustable instances provide a baseline level of CPU performance with an ability to burst above baseline. 
+
+* Fixed performance - M6, C6, R6
+* Burstable - T3
+
+---
+
+![bg right](./images/pexels-eberhard-grossgasteiger-2437289.jpg)
+# EC2 Storage Options
+
+EC2 instances are backed by EBS (elastic block storage) volumes. 
+
+EBS volume types: 
+
+* General purpose SSD
+* Provisioned IOPS
+* Magnetic
+
+---
+
+![bg right](./images/pexels-pixabay-158179.jpg)
+# Why don't we use EC2 everywhere? 
+
+* Need to manage infrastructure
+* Need to manage hosts and install updates
+* Complicated release process of app to avoid downtimes
+
+---
+
+![bg right](./images/pexels-pixabay-161097.jpg)
+# How does AWS Elastic Beanstalk help?
+
+* No need to know underlying infrastructure
+* Beanstalk is responsible for installing updates and performing releases
+* Observability is out of the box
+* Available via UI and CLI
+
+---
+
+![bg right](./images/pexels-achim-bongard-289327.jpg)
+# AWS Elastic Beanstalk
+
+Easy-to-use service for deploying and scaling web applications and services developed with Java, .Net, PHP, Python, Ruby, Go and Docker.
+
+You write the code, AWS Elastic Beanstalk will handle the deployment, from capacity provisioning to health monitoring. 
+
+---
+
+![bg right](./images/pexels-s-migaj-746386.jpg)
+# Beanstalk Concepts
+
+* Application
+* Application Version
+* Environment
+* Environment Tier
+* Environment Configuration
+* Saved Configuration
+* Platform
+
+---
+
+![bg right](../images/Elastic%20Beanstalk%20version%20flow.png)
+# AWS Elastic Beanstalk

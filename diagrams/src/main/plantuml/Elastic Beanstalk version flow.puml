@@ -1,0 +1,11 @@
+@startuml Elastic Beanstalk version flow
+
+(*) --> "Create application"
+"Create application" --> "Upload version"
+"Upload version" --> [Deploy new version] "Manage environment"
+"Upload version" --> "Launch environment"
+"Launch environment" --> "Manage environment"
+"Manage environment" --> [Update version] "Upload version"
+"Manage environment" --> (*)
+
+@enduml
