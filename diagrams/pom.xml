@@ -69,11 +69,8 @@
                                 <exec executable="marp">
                                     <arg value="../docs/slides/slides.md" />
                                     <arg value="-o" />
-                                    <arg value="slides.pdf" />
-                                    <arg value="--allow-local-files" />
+                                    <arg value="slides.html" />
                                 </exec>
-
-                                <move file="./slides.pdf" todir=".." />
                             </target>
                         </configuration>
                     </execution>

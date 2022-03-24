@@ -85,6 +85,71 @@ Actually, this is just a virtual machine (VM).
 
 ---
 
+![bg right](./images/pexels-daria-shevtsova-698172.jpg)
 # General purpose EC2 instances
 
-* Platforms: x86, Mac, Arm
+**Platforms:** x86, Mac, Arm
+**Use cases:**
+* General workloads
+* Low-latency interactive applications
+* Small and medium databases
+* Virtual desktops
+* Business-critical apps
+
+---
+
+![bg right](./images/pexels-yoss-traore-2564153.jpg)
+# Compute optimized EC2 instances
+
+**Use cases:**
+* Batch processing
+* Media transcoding
+* High-performance web services
+* High-performance computing
+* Scientific modelling
+* Machine learning
+* Other compute-intensive workloads
+
+---
+
+![bg right](./images/pexels-anna-urlapova-3035122.jpg)
+# Memory optimized EC2 instances
+
+Designed to deliver high performance for workloads that process large data sets in memory.
+
+**Use cases:**
+* Open-source databases
+* In-memory caches
+* Real-time big data analytics
+
+---
+
+![bg right](./images/pexels-jess-buckle-10706720.jpg)
+# Storage optimized
+
+Designed for workloads that require high, sequential read and write access to very large data sets on local storage. 
+
+**Use cases:**
+* Relational and non-relational database
+* Search engines
+* Data analytic workloads
+
+---
+
+![bg right](./images/pexels-gashif-rheza-3262573.jpg)
+# Accelerated computing
+
+GPU-based computing. 
+
+**Use cases:**
+* Machine learning
+* Fluid dynamics
+* Computational finance
+* Seismic analysis
+* Speech recognition
+* Autonomous vehicles
+* Drug discovery
+
+---
+
+# EC2 instance features
