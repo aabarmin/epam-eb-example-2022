@@ -30,15 +30,18 @@ March 2022
 * Chief Software Engineer I
 * AWS Solution Architect Associate
 * AWS Developer Associate
-* Aleksandr_Barmin@epam.com
+
+Aleksandr_Barmin@epam.com
 
 ---
 
 ![bg right](./images/pexels-pixabay-163037.jpg)
 # Agenda
 
-* Compute options available in AWS
+* Compute options in AWS
+* Not so deep dive into EC2
 * Use cases for VMs
+* AWS Elastic Beanstalk intro
 * Demo part
 
 ---
@@ -208,6 +211,7 @@ EBS volume types:
 
 ---
 
+<!-- header: AWS Elastic Beanstalk -->
 ![bg right](./images/pexels-achim-bongard-289327.jpg)
 # AWS Elastic Beanstalk
 
@@ -254,9 +258,66 @@ Infrastructure + host manager
 
 * `Buildfile` - for short-running jobs, EB is not monitoring them
 * `Procfile` - for long-running jobs, restarted if failed
+* Platform hooks - configure the deployment process. 
 
 ---
 
-# Platform Hooks
+![bg right](./images/pexels-pixabay-235725.jpg)
+# Running Java apps
 
-* 
+* Supported platform - Java SE & Tomcat
+* Can run multiple apps - declare in `Procfile` or deploy multiple `war` in Tomcat
+* Can add RDS
+  * Snapshot
+  * Delete
+  * Retain
+
+---
+
+![bg right](./images/pexels-pixabay-371662.jpg)
+# Deployment Options
+
+* All at once
+* Rolling
+* Rolling with additional batch
+* Immutable
+* Traffic splitting
+
+---
+
+![bg right fit](../images/Environment%20Internals.png)
+# Web Environment
+
+* Request is received by nginx or Apache HTTPd on port `80`
+* Static content can be served by nginx and Apache HTTPd
+* Application receives requests on port `5000`, can send messages to SQS to be processed by the worker environment
+
+---
+
+![bg right fit](../images/worker-environment-overview.png)
+# Worker Environment
+
+* SQS Daemon reads messages from the SQS Queue and sends them to the HTTP endpoint (nginx -> app)
+* Cron daemon sends requests to the HTTP endpoint (nginx -> app)
+* Cron and FIFO queues aren't working together
+
+---
+
+<!-- header: Demo time -->
+# Demo time
+
+---
+
+![bg height 80%](../images/Bird%20Eye%20Overview.png)
+
+---
+
+<!-- header: Summary -->
+![bg right](./images/IMG_6476.jpeg)
+# Summary
+
+* AWS Elastic Beanstalk simplifies running apps on EC2 instances
+* AWS Elastic Beanstalk manages the infrastructure, responsible for installing updates and patcher, performing releases
+* Web and worker envs allow to separate responsibilities and make app responsive
+
+https://github.com/aabarmin/epam-eb-example-2022

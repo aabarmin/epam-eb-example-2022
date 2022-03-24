@@ -1,0 +1,17 @@
+@startuml worker-environment-overview
+
+queue "SQS Queue" as queue
+control "SQS Daemon" as daemon
+control "Cron" as cron
+participant "Worker Environment" as worker
+
+group Reading messages from SQS
+    daemon -> queue: Poll messages
+    daemon -> worker: Send requests via HTTP
+end
+
+group Cron
+    cron -> worker: Send requests via HTTP
+end
+
+@enduml
