@@ -1,5 +1,5 @@
 @startuml Bird Eye Overview
-title: Bir Eye Overview
+title: Bird Eye Overview
 autonumber
 
 actor User as user
